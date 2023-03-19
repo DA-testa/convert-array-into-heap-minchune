@@ -1,42 +1,55 @@
 # python3
 
 
-def build_heap(data):
-    swaps = []
-    # TODO: Creat heap and heap sort
-    # try to achieve  O(n) and not O(n2)
+def build_heap(array):
+    swap = []
+    n = int((len(array) // 2) - 1)
+    for k in range(n, -1, -1):
+        heapify(array, k, swap)
+    return swap
 
+def right(val):
+    return 2 * k +2
+def left(val):
+    return 2 * k +2
 
-    return swaps
+def heap(array, val, swap):
+    l = left(val)
+    r = right(val)
+    if l < len(array) and array[l] < array[k]:
+        smallest = l
+    else:
+        smallest = k
+    if r < len(array) and array[r] < array[smallest]:
+        smallest = r
+    if smallest != k:
+        array[smallest], array[k] = array[k], array[smallest] #changing the place of the element
+        swap.append(int(k))
+        swap.append(int(smallest)) #add to the list
+        heapify(array, smallest, swap)
 
 
 def main():
-    
-    # TODO : add input and corresponding checks
-    # add another input for I or F 
-    # first two tests are from keyboard, third test is from a file
+    n = 0
+    data = []
+    input = input()
+    if input[0] == 'F':
+        path = input()
+        file = open("./tests/" + path, mode="r")
+        lines = file.readlines()
+        n = int(lines[0])
+        data = list(map(int, lines[1].split()))
+     if input[0] == 'I':
+        n = int(input())
+        data = list(map(int, input().split()))
 
-
-    # input from keyboard
-    n = int(input())
-    data = list(map(int, input().split()))
-
-    # checks if lenght of data is the same as the said lenght
-    assert len(data) == n
-
-    # calls function to assess the data 
-    # and give back all swaps
     swaps = build_heap(data)
 
-    # TODO: output how many swaps were made, 
-    # this number should be less than 4n (less than 4*len(data))
+    print(int(len(swaps) / 2))
+    for i in range(len(swaps)):
+        if i % 2 == 0:
+            print(str(swaps[i]) + " " + str(swaps[i + 1])) #pāra skaitļu pārbaude
 
 
-    # output all swaps
-    print(len(swaps))
-    for i, j in swaps:
-        print(i, j)
-
-
-if __name__ == "__main__":
+if _name_ == "_main_":
     main()
