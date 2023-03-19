@@ -10,8 +10,9 @@ def build_heap(array):
 
 def right(val):
     return 2 * val + 2
+
 def left(val):
-    return 2 * val + 2
+    return 2 * val + 1
 
 def heapsort(array, val, swap):
     l = left(val)
