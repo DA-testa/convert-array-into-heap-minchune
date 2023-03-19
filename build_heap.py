@@ -13,7 +13,7 @@ def right(val):
 def left(val):
     return 2 * val + 2
 
-def hearsort(array, val, swap):
+def heapsort(array, val, swap):
     l = left(val)
     r = right(val)
     if l < len(array) and array[l] < array[val]:
