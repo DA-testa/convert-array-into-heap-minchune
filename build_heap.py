@@ -39,7 +39,7 @@ def main():
         lines = file.readlines()
         n = int(lines[0])
         data = list(map(int, lines[1].split()))
-     if input[0] == 'I':
+    if input[0] == 'I':
         n = int(input())
         data = list(map(int, input().split()))
 
