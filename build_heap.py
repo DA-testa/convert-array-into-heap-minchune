@@ -9,22 +9,22 @@ def build_heap(array):
     return swap
 
 def right(val):
-    return 2 * k +2
+    return 2 * val + 2
 def left(val):
-    return 2 * k +2
+    return 2 * val + 2
 
 def hearsort(array, val, swap):
     l = left(val)
     r = right(val)
-    if l < len(array) and array[l] < array[k]:
+    if l < len(array) and array[l] < array[val]:
         smallest = l
     else:
-        smallest = k
+        smallest = val
     if r < len(array) and array[r] < array[smallest]:
         smallest = r
-    if smallest != k:
-        array[smallest], array[k] = array[k], array[smallest] #changing the place of the element
-        swap.append(int(k))
+    if smallest != val:
+        array[smallest], array[val] = array[val], array[smallest] #changing the place of the element
+        swap.append(int(val))
         swap.append(int(smallest)) #add to the list
         heapsort(array, smallest, swap)
 
@@ -32,14 +32,14 @@ def hearsort(array, val, swap):
 def main():
     n = 0
     data = []
-    input = input()
-    if input[0] == 'F':
+    input_data = input()
+    if input_data[0] == 'F':
         path = input()
         file = open("./tests/" + path, mode="r")
         lines = file.readlines()
         n = int(lines[0])
         data = list(map(int, lines[1].split()))
-    if input[0] == 'I':
+    if input_data[0] == 'I':
         n = int(input())
         data = list(map(int, input().split()))
 
