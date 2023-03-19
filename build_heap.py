@@ -51,5 +51,5 @@ def main():
             print(str(swaps[i]) + " " + str(swaps[i + 1])) #pāra skaitļu pārbaude
 
 
-if _name_ == "_main_":
+if __name__ == "__main__":
     main()
