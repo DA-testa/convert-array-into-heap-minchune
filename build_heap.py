@@ -5,7 +5,7 @@ def build_heap(array):
     swap = []
     n = int((len(array) // 2) - 1)
     for k in range(n, -1, -1):
-        heapify(array, k, swap)
+        heapsort(array, k, swap)
     return swap
 
 def right(val):
@@ -13,7 +13,7 @@ def right(val):
 def left(val):
     return 2 * k +2
 
-def heap(array, val, swap):
+def hearsort(array, val, swap):
     l = left(val)
     r = right(val)
     if l < len(array) and array[l] < array[k]:
@@ -26,7 +26,7 @@ def heap(array, val, swap):
         array[smallest], array[k] = array[k], array[smallest] #changing the place of the element
         swap.append(int(k))
         swap.append(int(smallest)) #add to the list
-        heapify(array, smallest, swap)
+        heapsort(array, smallest, swap)
 
 
 def main():
